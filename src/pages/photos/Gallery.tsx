@@ -3,8 +3,6 @@ import { UnsplashImage } from '../../Types';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
-// Virtualize list / React Router / React Query
-
 const Gallery = () => {
 	const [images, setImages] = useState<UnsplashImage[]>([]);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -52,7 +50,7 @@ const Gallery = () => {
 				return images;
 			});
 		}
-	}, [isPending, data]);
+	}, [currentPage, isPending, data]);
 
 	let errorMessage = "";
 
